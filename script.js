@@ -24,7 +24,7 @@ checkboxes.forEach((checkbox, i) => {
 // Simulación de procesos con Promesas
 
 const entregaBebida = new Promise((resolve) => {
-    setTimeout(() => resolve('Bebida entregada'), 1500);
+    setTimeout(() => resolve('Bebida entregada'), 2000);
 });
 
 const realizarPedido = (seleccionados) => {
@@ -51,7 +51,7 @@ const entregarPedido = () => {
     return new Promise((resolve) => {
         const estado = estatusPedido() ? '¡Listo para entregar!' : 'Hubo un problema en la entrega vuelve a intentar';
         document.getElementById('delivery-status').textContent = estado;
-        setTimeout(() => resolve(estado), 1200);
+        setTimeout(() => resolve(estado), 2000);
     });
 }
 
@@ -138,6 +138,7 @@ orderButton.addEventListener('click', async function() {
         }
     
         const estadoEntrega = await entregarPedido();
+        
         if (postre.length) {
             await entregarPostre();
             mostrarPedidosRealizados(postre, 'Postre entregado');
